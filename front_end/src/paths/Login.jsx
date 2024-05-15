@@ -1,7 +1,10 @@
 import React from "react";
 import './Login.css';
+import { useNavigate } from "react-router-dom";
 
 function Login(){
+    const nav = useNavigate()
+
     return(
         <div className="Login"> 
             <form action="">
@@ -24,8 +27,7 @@ function Login(){
             </form>
             <h4 class="or">or</h4>
             <div className="signup">
-                <button className="Signup-button"
-                    onClick={console.log("signing up...")}>
+                <button className="Signup-button" onClick={nav('/Signup')}>
                         Signup
                 </button>
             </div>

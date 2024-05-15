@@ -10,8 +10,8 @@ function Holder(){
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<Login />} />
-        <Route path='./Home' element={<Home />} />
-        <Route path='./Signup' element={<Signup />} />
+        <Route path='/Home' element={<Home />} />
+        <Route path='/Signup' element={<Signup />} />
       </Routes>
     </BrowserRouter>
   );
