@@ -1,8 +1,16 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 function Signup(){
+    const nav = useNavigate()
+
     return(
-        <div>This is the Signup page</div>
+        <div className="login">
+            <button className="Login-button"
+                onClick={nav('/')}>
+                login
+            </button>
+        </div>
     );
 }
 

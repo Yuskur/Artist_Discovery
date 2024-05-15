@@ -23,7 +23,7 @@ function Login(){
                     onClick={console.log("logging in...")}>
                         login
                 </button>
-            </div>
+                </div>
             </form>
             <h4 class="or">or</h4>
             <div className="signup">
