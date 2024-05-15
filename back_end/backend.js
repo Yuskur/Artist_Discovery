@@ -2,7 +2,7 @@ const express = require('express')
 const cors = require('cors')
 const path = require('path')
 
-//Haven't initialzed a set db just yet we will get to that later...
+//Haven't initialzed a set db just yet we will get to that later..
 
 const app = express()
 app.use(express.static(path.join(__dirname, "public")))
