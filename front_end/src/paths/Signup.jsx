@@ -42,7 +42,7 @@ function Signup() {
       </form>
       <h4 className="or">or</h4>
       <div className="login">
-        <button className="Login-button" onClick={() => nav('/login')}>
+        <button className="Login-button" onClick={() => nav('/')}>
           Login
         </button>
       </div>
