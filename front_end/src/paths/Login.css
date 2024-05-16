@@ -22,6 +22,21 @@ body{
     margin-bottom: 30px;
 }
 
+.Email-textbox{
+    flex: 1;
+    font-size: 12px;
+    padding: 15px;
+    border-color: black;
+    border-radius: 10px;
+}
+.Email{
+    flex: 1;
+    display: flex;
+    width: 100%;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
 .Username-textbox{
     flex: 1;
     font-size: 12px;
