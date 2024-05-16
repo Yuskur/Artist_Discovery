@@ -20,14 +20,14 @@ function Login(){
                 </div>
                 <div className="login">
                 <button className="Login-button"
-                    onClick={console.log("logging in...")}>
+                    onClick={() => console.log("logging in...")}>
                         login
                 </button>
             </div>
             </form>
             <h4 class="or">or</h4>
             <div className="signup">
-                <button className="Signup-button" onClick={nav('/Signup')}>
+                <button className="Signup-button" onClick={() => nav('/Signup')}>
                         Signup
                 </button>
             </div>
