@@ -5,7 +5,8 @@ import Login from './paths/Login';
 import Home from './paths/Home';
 import Signup from './paths/Signup';
 
-function Holder(){
+
+function App() {
   return(
     <BrowserRouter>
       <Routes>
@@ -17,10 +18,5 @@ function Holder(){
   );
 }
 
-function App() {
-  return (
-    <Holder />
-  );
-}
 
 export default App;

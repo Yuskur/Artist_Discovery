@@ -1,4 +1,4 @@
-body{
+.body{
     margin: 0;
     padding: 0;
     display: flex;
@@ -8,6 +8,16 @@ body{
 }
 
 .Login{
+    height: auto;
+    width: 300px; /* Adjust the width of the login form */
+    text-align: center;
+    border: 1px solid #ccc; /* Optional: Add border for visualization */
+    padding: 50px;
+    border-radius: 20px;
+    border-color: black;
+    border-width: 2px;
+}
+.Signup{
     height: auto;
     width: 300px; /* Adjust the width of the login form */
     text-align: center;
@@ -44,6 +54,7 @@ body{
     border-color: black;
     border-radius: 10px;
 }
+
 .Password{
     flex: 1;
     display: flex;
