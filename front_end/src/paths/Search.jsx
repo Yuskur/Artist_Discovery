@@ -1,8 +1,8 @@
-import React, { cond } from "react";
+import React, { useState } from "react";
 import './Search.css';
 
 function Search({ onSearch }) {
-    const [query, setQuery] = cond("");
+    const [query, setQuery] = useState("");
 
     const handleSearch = (e) => {
         e.preventDefault();

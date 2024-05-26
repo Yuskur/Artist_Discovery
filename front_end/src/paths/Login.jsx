@@ -26,7 +26,6 @@ function Login(){
                 },
                 body: JSON.stringify({ username, password }), 
             });
-            console.log(JSON.stringify({username}))
 
             if(response.ok){
                 const data = await response.json()
@@ -45,30 +44,40 @@ function Login(){
     }
 
     return(
-        <div className="Login"> 
-            <form onSubmit={submit}>
-                <h1 className="Login-title">Login</h1>
-                <hr className="firstLine" />
-                <div className="Username">
-                    <input className="Username-textbox" 
-                    type="text" placeholder="Username" required/>
+        <div className="body">
+            <div className="Login"> 
+                <form onSubmit={submit}>
+                    <h1 className="Login-title">Login</h1>
+                    <hr className="firstLine" />
+                    <div className="Username">
+                        <input 
+                        className="Username-textbox" 
+                        type="text" 
+                        placeholder="Username" 
+                        onChange={(change) => setUsername(change.target.value)}
+                        required/>
+                    </div>
+                    <div className="Password">
+                        <input 
+                        className="Password-textbox" 
+                        type="text" 
+                        placeholder="Password" 
+                        onChange={(change) => setPassword(change.target.value)}
+                        required/>
+                    </div>
+                    <div className="login">
+                    <button className="Login-button"
+                        onClick={() => console.log("logging in...")}>
+                            login
+                    </button>
+                    </div>
+                </form>
+                <h4 class="or">or</h4>
+                <div className="signup">
+                    <button className="Signup-button" onClick={() => nav('/Signup')}>
+                            Signup
+                    </button>
                 </div>
-                <div className="Password">
-                    <input className="Password-textbox" 
-                    type="text" placeholder="Password" required/>
-                </div>
-                <div className="login">
-                <button className="Login-button"
-                    onClick={() => console.log("logging in...")}>
-                        login
-                </button>
-                </div>
-            </form>
-            <h4 class="or">or</h4>
-            <div className="signup">
-                <button className="Signup-button" onClick={() => nav('/Signup')}>
-                        Signup
-                </button>
             </div>
         </div>
     );
