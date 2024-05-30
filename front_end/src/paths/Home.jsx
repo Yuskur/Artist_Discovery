@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Search from "./Search";
 
-const content = [ "This is the Home page"];
+const content = [ "This is the Home page", "This is another page"];
 
  function Home(){
      const [filteredContent, setFilteredContent] = useState(content);
@@ -12,13 +12,15 @@ const content = [ "This is the Home page"];
      };
 
      return (
-         <div>
-             <Search onSearch={handleSearch} />
-             <div>
+         <div className="home-body">
+            <div>
+                <Search onSearch={handleSearch} />
+            </div>
+            <div>
                  {filteredContent.map((item, index) => (
                      <p key={index}>{item}</p>
                  ))}
-             </div>
+            </div>
          </div>
      );
  }
