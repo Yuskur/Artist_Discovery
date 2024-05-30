@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import './Search.css';
 
-function Search({ onSearch }) {
+function Search({ onSearch, setText }) {
     const [query, setQuery] = useState("");
 
     const handleSearch = (e) => {
@@ -9,13 +9,19 @@ function Search({ onSearch }) {
         onSearch(query);
     };
 
+    const handleChange = (change) => {
+        setQuery(change.target.value)
+        setText(change.target.value)
+        onSearch(query);
+    } 
+
     return (
         <form onSubmit={handleSearch} className="Search">
             <input 
                 type="text" 
                 placeholder="Search..." 
                 value={query} 
-                onChange={(e) => setQuery(e.target.value)} 
+                onChange={handleChange} 
                 className="Search-input"
             />
             <button type="submit" className="Search-button">Search</button>

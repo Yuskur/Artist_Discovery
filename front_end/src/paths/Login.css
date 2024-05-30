@@ -39,6 +39,8 @@
     padding: 15px;
     border-color: black;
     border-radius: 10px;
+    outline: none;
+    box-shadow: none;
 }
 .Username{
     flex: 1;
@@ -54,6 +56,8 @@
     padding: 15px;
     border-color: black;
     border-radius: 10px;
+    outline: none;
+    box-shadow: none;
 }
 
 .Password{

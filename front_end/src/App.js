@@ -5,6 +5,7 @@ import Login from './paths/Login';
 import Home from './paths/Home';
 import Signup from './paths/Signup';
 import Topbar from './paths/TopBar';
+import About from './paths/About'
 
 
 function App() {
