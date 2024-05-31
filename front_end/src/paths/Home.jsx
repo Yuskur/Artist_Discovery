@@ -15,6 +15,7 @@ const content = [
  function Home(){
      const [filteredContent, setFilteredContent] = useState([]);
      const [hasText, setHasText] = useState(false);
+     const [hasNone, setHasNone] = useState(false);
 
      const handleSearch = (query) => {
          const filtered = content.filter(item => item.artist.toLowerCase().includes(query.toLowerCase()));
@@ -30,6 +31,7 @@ const content = [
             }
          })
          setFilteredContent(sortedFiltered);
+         setHasNone(sortedFiltered.length === 0)
      };
 
      const handleText = (text) => {
@@ -58,11 +60,19 @@ const content = [
             <div className="Search-bar">
                 <Search onSearch={handleSearch} setText={handleText} />
                 {hasText && (
-                    <div className="filteredContent">
-                        {filteredContent.map((item, index) => (
-                            <SearchObj item={item} index={index} />
-                        ))}
-                    </div>
+                    <>
+                        {hasNone ? (
+                            <div className="no-results">
+                                No results found
+                            </div>
+                        ) : (
+                        <div className="filteredContent">
+                            {filteredContent.slice(0,6).map((item, index) => (
+                                <SearchObj item={item} index={index} />
+                            ))}
+                        </div>
+                        )}
+                    </>
                  )
                 }
              </div>

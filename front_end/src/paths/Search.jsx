@@ -4,6 +4,7 @@ import './Search.css';
 function Search({ onSearch, setText }) {
     const [query, setQuery] = useState("");
 
+    //this should handle something else but we will deal with this later
     const handleSearch = (e) => {
         e.preventDefault();
         onSearch(query);
