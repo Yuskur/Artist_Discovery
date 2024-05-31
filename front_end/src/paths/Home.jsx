@@ -2,14 +2,14 @@ import React, { useState } from "react";
 import Search from "./Search";
 import './Home.css'
 
-//This allows us to take the content by obejct and use it handle the views
+//This allows us to take the content by obejct and use it handle the views (also a placeholder for the db return call)
 const content = [ 
     {artist: "Drake", genre: "R&B"}, 
     {artist: "Micheal Jackson", genre: "Hiphop"}, 
     {artist: "AC/DC", genre: "Rock"},
     {artist: "M&M", genre: "R&B"}, 
     {artist: "J-cole", genre: "R&B"}, 
-    {artist: "Tyler", genre: "Hiphop/Rap"}
+    {artist: "Tyler", genre: "Hiphop/Rap"},
 ];
 
  function Home(){
@@ -46,7 +46,6 @@ const content = [
 
     //Ideally should also have an onclick to navigate to an artist page
     function SearchObj({item, index}){
-        
         return(
             <div className="search-results">
                 <h5 key={index}>{item.artist}</h5>

@@ -68,14 +68,14 @@ function Login(){
                     <div className="login">
                     <button className="Login-button"
                         onClick={() => console.log("logging in...")}>
-                            login
+                            <h5>Login</h5>
                     </button>
                     </div>
                 </form>
                 <h4 class="or">or</h4>
                 <div className="signup">
                     <button className="Signup-button" onClick={() => nav('/Signup')}>
-                            Signup
+                            <h5>Signup</h5>
                     </button>
                 </div>
             </div>

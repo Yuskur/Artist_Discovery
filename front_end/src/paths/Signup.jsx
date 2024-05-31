@@ -37,14 +37,14 @@ function Signup() {
           </div>
           <div className="signup">
             <button className="Signup-button" onClick={() => console.log("signing up...")}>
-              Signup
+              <h5>Signup</h5>
             </button>
           </div>
         </form>
         <h4 className="or">or</h4>
         <div className="login">
           <button className="Login-button" onClick={() => nav('/')}>
-            Login
+            <h5>Login</h5>
           </button>
         </div>
       </div>
