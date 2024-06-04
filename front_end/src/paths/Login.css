@@ -7,6 +7,24 @@
     height: 100vh;
 }
 
+.Email{
+    flex: 1;
+    display: flex;
+    width: 100%;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.Email-textbox{
+    flex: 1;
+    font-size: 12px;
+    padding: 15px;
+    border-color: black;
+    border-radius: 10px;
+    outline: none;
+    box-shadow: none;
+}
+
 .Login{
     height: auto;
     width: 300px; /* Adjust the width of the login form */

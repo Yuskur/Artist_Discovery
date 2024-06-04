@@ -11,9 +11,10 @@ function Search({ onSearch, setText }) {
     };
 
     const handleChange = (change) => {
-        setQuery(change.target.value)
-        setText(change.target.value)
-        onSearch(query);
+        const newQuery = change.target.value
+        setQuery(newQuery)
+        setText(newQuery)
+        onSearch(newQuery);
     } 
 
     return (
