@@ -1,10 +1,19 @@
 import React from "react";
 import './Login.css';
 import { useNavigate } from "react-router-dom";
+import Cookies from "js-cookie";
 
 function Signup() {
   const nav = useNavigate();
 
+  const handleSignup = (e) => {
+    e.preventDefault();
+    // Doing this is assuming that the sign up process from the user worked
+    Cookies.set("newUser", "false", { expires: 2 }); // Cookie will expire in 2 days
+    console.log("User signed up and cookie set");
+    nav('/home');
+  };
+  
   return (
     <div className="body">
       <div className="Login">
