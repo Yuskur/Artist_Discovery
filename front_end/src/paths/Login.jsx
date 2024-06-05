@@ -25,16 +25,16 @@ function Login(){
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({ username, password }), 
+                credentials: 'include',
             });
 
             if(response.ok){
                 const data = await response.json()
-
-                //storing the token as a cookie
-                document.cookie = `token=${data.token}; path=/`
-
+                console.log(data)
                 //navigate to the home page
-                nav('/Home')
+                nav('/')
+            } else{
+                console.log('unable to login')
             }
         }
 
@@ -72,7 +72,7 @@ function Login(){
                     </button>
                     </div>
                 </form>
-                <h4 class="or">or</h4>
+                <h4 className="or">or</h4>
                 <div className="signup">
                     <button className="Signup-button" onClick={() => nav('/Signup')}>
                             <h5>Signup</h5>

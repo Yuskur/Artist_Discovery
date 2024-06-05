@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Search from "./Search";
 import './Home.css'
+
 
  function Home(){
     //This allows us to take the content by obejct and use it handle the views (also a placeholder for the db return call)
@@ -16,16 +17,15 @@ import './Home.css'
      const [hasText, setHasText] = useState(false);
      const [hasNone, setHasNone] = useState(false);
 
-
-     useEffect(() => {
-        const newUser = Cookies.get("newUser");
-        if (!newUser) {
-            setIsNewUser(true);
-            Cookies.set("newUser", "true", { expires: 2 }); // Expire in 2 days
-        } else {
-            setIsNewUser(false);
-        }
-    }, []);
+    // useEffect(() => {
+    //     const newUser = Cookies.get("newUser");
+    //     if (!newUser) {
+    //         setIsNewUser(true);
+    //         Cookies.set("newUser", "true", { expires: 2 }); // Expire in 2 days
+    //     } else {
+    //         setIsNewUser(false);
+    //     }
+    // }, []);
 
      //Handle the search query problem sometime later in development
      const handleSearch = (query) => {
