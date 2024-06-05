@@ -17,6 +17,16 @@ import './Home.css'
      const [hasNone, setHasNone] = useState(false);
 
 
+     useEffect(() => {
+        const newUser = Cookies.get("newUser");
+        if (!newUser) {
+            setIsNewUser(true);
+            Cookies.set("newUser", "true", { expires: 2 }); // Expire in 2 days
+        } else {
+            setIsNewUser(false);
+        }
+    }, []);
+
      //Handle the search query problem sometime later in development
      const handleSearch = (query) => {
          const filtered = content.filter(item => item.artist.toLowerCase().includes(query.toLowerCase()));
