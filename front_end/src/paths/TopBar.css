@@ -1,13 +1,8 @@
-ul li a.auth-nav.active {
-    background-color: white;
-    color: black;
+ul li {
+    list-style: none;
 }
 
-.def-nav-link.active{
-    border: 1px solid black;
-}
-
-nav {
+.navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -22,16 +17,8 @@ nav .logo {
     color: black;
 }
 
-ul {
+.unAuthorizedTools, .def-nav-container {
     display: flex;
-}
-
-.def-nav-container {
-    display: flex;
-}
-
-ul li {
-    list-style: none;
 }
 
 .def-nav {
@@ -39,6 +26,7 @@ ul li {
     margin-right: 10px;
     margin-left: 10px;
 }
+
 
 ul li a.auth-nav {
     display: block;
@@ -48,15 +36,20 @@ ul li a.auth-nav {
     margin: 0 0.5rem;
     border-radius: 0.5rem;
     background-color: black;
+    transition: background-color 0.3s, color 0.3s;
 }
 
-ul li a.auth-nav:not(.active):hover{
+ul li a.auth-nav.active {
     background-color: white;
     color: black;
 }
 
+ul li a.auth-nav:not(.active):hover {
+    background-color: white;
+    color: black;
+}
 
-/* Animated link styling */
+/* Def Nav Link Styling */
 .def-nav-link {
     display: block;
     text-decoration: none;
@@ -64,10 +57,15 @@ ul li a.auth-nav:not(.active):hover{
     font-size: 15px;
     font-weight: bold;
     position: relative;
-    transition: color 0.3s ease;
     padding: 0.5rem;
     margin: 0 0.5rem;
+    transition: color 0.3s ease;
 }
+
+.def-nav-link.active {
+    border: 1px solid black;
+}
+
 .def-nav-link:hover {
     color: black;
 }
@@ -76,7 +74,7 @@ ul li a.auth-nav:not(.active):hover{
     content: '';
     position: absolute;
     left: 50%;
-    bottom: 0;
+    bottom: -2px;
     width: 0;
     height: 2px;
     background-color: black;
@@ -86,4 +84,78 @@ ul li a.auth-nav:not(.active):hover{
 
 .def-nav-link:hover::after {
     width: 100%;
+}
+
+.profile {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.user {
+    width: 60px; 
+    height: 60px; 
+    border: 1px solid black; 
+    border-radius: 50%;
+    background-color: white; 
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.userToolBody {
+    width: 200px;
+    height: auto;
+    position: absolute;
+    margin-top: 10px;
+    margin-right: 10px;
+    right: 0;
+    background-color: white; 
+    border: 1px solid black;
+    border-radius: 8px;
+    z-index: 10; 
+}
+
+.userTools {
+    padding: 10px; 
+    font-size: 16px;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+}
+
+.userTools a {
+    text-decoration: none;
+    color: inherit; 
+}
+
+.userTools:hover {
+    color: #ccc;
+}
+
+.userTools a:visited {
+    color: black;
+}
+
+.userBar {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+}
+
+.user-profile-detail-body{
+    padding: 10px;
+}
+
+.user-profile-detail{
+    border: 1px solid black; 
+    border-radius: 50%;
+    width: 40px; 
+    height: 40px;
+}
+
+.user-profile-detail-body hr {
+    margin-right: 5px;
+    margin-left: 5px;
 }

@@ -72,15 +72,15 @@ app.post('/login', (req, res) => {
     */
 
     //Making the json web token for the user (just using 1 for the uid for now)
-    const token = jwt.sign(payload, process.env.SECRET_KEY, {expiresIn: '1h'})
+    const token = jwt.sign(payload, process.env.SECRET_KEY, {expiresIn: '24h'})
 
     //This will store the cookie as an http only cookie in client browser
     res.cookie(
         'token', token, {
             httpOnly: true,
             secure: process.env.NODE_ENV === 'production',
-            sameSite: 'Strict',
-            maxAge: 3600000,
+            sameSite: 'strict',
+            maxAge: 86400000,
         }
     )
 
@@ -88,7 +88,7 @@ app.post('/login', (req, res) => {
     res.json({ message: 'Login successful' })
 });
 
-app.post('signup', (req, res) => {
+app.post('/signup', (req, res) => {
     const {email, username, passwrod} = req.body
     let uuid, notAvailable; 
 
@@ -100,14 +100,14 @@ app.post('signup', (req, res) => {
 
     //ideally we should add a new user here with their unique id
 
-    
+
     const payload = {
         userid: uuid,
         username: username,
         roles: 'user'
     }
 
-    const token = jwt.sign(payload, process.env.SECRET_KEY, {expiresIn: '1h'})
+    const token = jwt.sign(payload, process.env.SECRET_KEY, {expiresIn: '24h'})
 
     //This will store the cookie as an http only cookie in client browser
     res.cookie(
@@ -115,13 +115,27 @@ app.post('signup', (req, res) => {
             httpOnly: true,
             secure: process.env.NODE_ENV === 'production',
             sameSite: 'Strict',
-            maxAge: 3600000,
+            maxAge: 86400000,
         }
     )
 
     //returns a json of the token
     res.json({ message: 'Signup successful' })
+})
 
+app.get('/authorized', (req, res) => {
+
+})
+
+//This will set the user session named token to expire immediately meaning the user is now logged out
+app.post('/logout', (req, res) => {
+    res.cookie('token', '', {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === 'production',
+        sameSite: 'strict',
+        expires: new Date(0) // Set the cookie to expire immediately
+    });
+    res.json({ message: 'Logout successful' });
 })
 
 //initializes the server to begin listening to http requests from the front end

@@ -16,7 +16,7 @@ function Signup() {
       const response = await fetch('http://localhost:3001/signup', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify({email, username, password}),
         credentials: 'include', //This allows for cookies to be included in the request and the response from the server
