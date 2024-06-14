@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import './Login.css';
 import { useNavigate } from "react-router-dom";
 
-function Login(){
+function Login({setIsLoggedIn}){
     const nav = useNavigate()
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [isLoading, setIsLoading] = useState(false);
 
     /*This is a constant async function that makes an http request to the backend server
     using the /login route. The server will then handle the user lookup
@@ -31,13 +32,17 @@ function Login(){
             if(response.ok){
                 const data = await response.json()
                 console.log(data)
-                //navigate to the home page
-                nav('/')
+                setIsLoggedIn(true)
+                
+                //navigate to the home page with delay
+                setIsLoading(true)
+                setTimeout(() => {
+                    nav('/')
+                }, 500)
             } else{
                 console.log('unable to login')
             }
         }
-
         catch (error){
             console.error('Error:' , error)
         }
@@ -60,24 +65,41 @@ function Login(){
                     <div className="Password">
                         <input 
                         className="Password-textbox" 
-                        type="text" 
+                        type="password" 
                         placeholder="Password" 
                         onChange={(change) => setPassword(change.target.value)}
                         required/>
                     </div>
                     <div className="login">
-                    <button className="Login-button"
-                        onClick={() => console.log("logging in...")}>
-                            <h5>Login</h5>
-                    </button>
+                        <>
+                            {isLoading ? (
+                                <div>
+                                    Logging In . . .
+                                </div>
+                            ) : (
+                                <button className="Login-button"
+                                    onClick={() => console.log("logging in...")}>
+                                    <h5>Login</h5>
+                                </button>
+                            )}
+                        </>
                     </div>
                 </form>
-                <h4 className="or">or</h4>
-                <div className="signup">
-                    <button className="Signup-button" onClick={() => nav('/Signup')}>
-                            <h5>Signup</h5>
-                    </button>
-                </div>
+                <>
+                    {isLoading ? (
+                        <>
+                        </>
+                    ) : (
+                        <>
+                        <h4 className="or">or</h4>
+                        <div className="signup">
+                            <button className="Signup-button" onClick={() => nav('/Signup')}>
+                                <h5>Signup</h5>
+                            </button>
+                        </div>
+                        </>
+                    )}
+                </>
             </div>
         </div>
     );

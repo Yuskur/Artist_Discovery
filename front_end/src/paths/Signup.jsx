@@ -71,7 +71,7 @@ function Signup() {
             />
           </div>
           <div className="signup">
-            <button className="Signup-button" onClick={() => console.log("signing up...")}>
+            <button className="Signup-button" onClick={handleSignup}>
               <h5>Signup</h5>
             </button>
           </div>

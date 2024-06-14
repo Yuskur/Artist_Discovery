@@ -117,11 +117,28 @@ ul li a.auth-nav:not(.active):hover {
 }
 
 .userTools {
-    padding: 10px; 
+    padding-top: 10px; 
+    padding-bottom: 10px;
     font-size: 16px;
     font-weight: 500;
     border: none;
     cursor: pointer;
+}
+
+.view-profile {
+    padding: 0;
+    margin-left: 10px;
+    font-size: 13px;
+    font-weight: bold;
+    border: none;
+}
+
+.profile-username {
+    padding: 0;
+    margin-left: 10px;
+    font-size: 10px;
+    font-weight: bold;
+    border: none;
 }
 
 .userTools a {
@@ -151,11 +168,30 @@ ul li a.auth-nav:not(.active):hover {
 .user-profile-detail{
     border: 1px solid black; 
     border-radius: 50%;
+    background-color: white;
     width: 40px; 
     height: 40px;
+    z-index: 3px;
 }
 
 .user-profile-detail-body hr {
     margin-right: 5px;
     margin-left: 5px;
+}
+
+.inner-profile{
+    display: flex;
+    border-radius: 10px;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.inner-profile:hover{
+    background-color: #f3f2f2;
+}
+
+.inner-profile div p {
+    margin: 3px 0 0 10px;
+    padding: 0;
 }

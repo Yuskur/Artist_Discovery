@@ -1,4 +1,5 @@
 .body{
+    position: relative;
     margin: 0;
     padding: 0;
     display: flex;
@@ -26,6 +27,7 @@
 }
 
 .Login{
+    position: relative;
     height: auto;
     width: 300px; /* Adjust the width of the login form */
     text-align: center;

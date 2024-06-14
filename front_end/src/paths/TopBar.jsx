@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import './TopBar.css'
 
-function Topbar(){
-    const [isLoggedIn, setIsLoggedIn] = useState(true)
-    const [userBarClicked, setClicked] = useState(false)
+function Topbar({ isLoggedIn, setIsLoggedIn, userBarClicked, setClicked, userBarRef }){
+    const nav = useNavigate()
+
     const logout = async () => {
         try{
             const response = await fetch('http://localhost:3001/logout', {
@@ -23,14 +23,14 @@ function Topbar(){
             }
         }
         catch(error){
-
+            console.error('Error: ', error)
         }
-        
     }
-    const showUserTools = () => {
-        console.log("Clicked")
+
+    const showUserTools = (event) => {
+        event.stopPropagation();
         setClicked(!userBarClicked);
-    }
+      };
 
     function LoginSignup(){
         return(
@@ -51,15 +51,23 @@ function Topbar(){
 
     function UserBar(){
         return(
-            <nav className="userToolBody">
+            <nav ref={userBarRef} className="userToolBody">
                 <div className="user-profile-detail-body">
-                    <div className="user-profile-detail"></div>
+                    <div className="inner-profile" onClick={() => {nav('/Profile')}}>
+                        <div className="user-profile-detail"></div>
+                        <div>
+                            <p className="view-profile">View Profile</p>
+                            <p className="profile-username">Username</p>
+                        </div>
+                    </div>
                     <hr />
                 </div>
                 <ul className="userBar">
-                    <li className="userTools">Profile</li>
+                    <li className="userTools">Home</li>
                     <li className="userTools">Edit Profile</li>
+                    <li className="userTools">Messages</li>
                     <li className="userTools">Help</li>
+                    <li className="userTools">settings</li>
                     <li className="userTools" onClick={logout}>Logout</li>
                 </ul>
             </nav>

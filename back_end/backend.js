@@ -79,7 +79,7 @@ app.post('/login', (req, res) => {
         'token', token, {
             httpOnly: true,
             secure: process.env.NODE_ENV === 'production',
-            sameSite: 'strict',
+            sameSite: 'lax',
             maxAge: 86400000,
         }
     )
@@ -114,7 +114,7 @@ app.post('/signup', (req, res) => {
         'token', token, {
             httpOnly: true,
             secure: process.env.NODE_ENV === 'production',
-            sameSite: 'Strict',
+            sameSite: 'lax',
             maxAge: 86400000,
         }
     )
@@ -124,7 +124,7 @@ app.post('/signup', (req, res) => {
 })
 
 app.get('/authorized', (req, res) => {
-
+    
 })
 
 //This will set the user session named token to expire immediately meaning the user is now logged out
