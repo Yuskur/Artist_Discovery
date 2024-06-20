@@ -5,7 +5,9 @@ import React from "react";
 function Profile(){
 
     return(
-        <div>This is your profile page</div>
+        <div className="profile-body">
+            
+        </div>
     )
 }
 

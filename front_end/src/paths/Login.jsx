@@ -11,6 +11,11 @@ function Login({setIsLoggedIn}){
     /*This is a constant async function that makes an http request to the backend server
     using the /login route. The server will then handle the user lookup
     */
+
+    const adjustLogin = async () => {
+        const newUsername = username.trim().toLowerCase()
+        return { newUsername };
+    }
     const submit = async (e) => {
         e.preventDefault()
 
@@ -18,14 +23,14 @@ function Login({setIsLoggedIn}){
 
         try {
             console.log('fetching token from backend')
-            console.log('Username: ' + username)
-            console.log('Password: ' + password)
+            const { newUsername } = await adjustLogin();
+
             const response = await fetch('http://localhost:3001/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ username, password }), 
+                body: JSON.stringify({ username: newUsername, password }), 
                 credentials: 'include',
             });
 
