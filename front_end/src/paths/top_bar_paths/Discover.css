@@ -1,29 +1,15 @@
-.home-body{
+.discover-body{
     min-height: 100%;
     min-width: 100%;
     background-color: var(--bg_color)
 }
 
+/* Search Bar  */
 .Search-bar{
     margin-left: auto;
     margin-right: auto;
     width: 60%;
     min-width: 500px;
-    overflow: hidden;
-}
-
-.vote{
-    position: fixed;
-    right: 8%;
-    top: 30%; 
-    width: 20%;
-    min-width: 300px;
-    height: auto;
-    min-height: 500px;
-    border-radius: 5px;
-    border: 1px solid black;
-    padding: 10px;
-    z-index: 1;
 }
 
 .search-results{
@@ -32,7 +18,7 @@
     margin: 0;
     padding: 0;
     padding-left: 10px;
-    width: 100%;
+    width: 99%;
     min-width: 500px;
     height: 30%;
     overflow: hidden;

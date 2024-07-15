@@ -1,3 +1,7 @@
+.top-bar{
+    min-width: 100%;
+}
+
 ul li {
     list-style: none;
 }
@@ -6,7 +10,7 @@ ul li {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: bisque;
+    background-color: var(--topbar_color)
 }
 
 nav .logo {
@@ -88,7 +92,6 @@ ul li a.auth-nav:not(.active):hover {
 
 .profile {
     padding: 10px;
-    cursor: pointer;
 }
 
 .user {
@@ -101,6 +104,7 @@ ul li a.auth-nav:not(.active):hover {
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 
 .userToolBody {
@@ -146,12 +150,23 @@ ul li a.auth-nav:not(.active):hover {
     color: inherit; 
 }
 
+.userTools {
+    display: inline-block;
+    margin-right: 20px;
+    cursor: pointer; /* Ensure the cursor changes to pointer on hover */
+}
+
 .userTools:hover {
     color: #ccc;
 }
 
-.userTools a:visited {
-    color: black;
+.userBarLinks {
+    text-decoration: none;
+    color: inherit;
+}
+
+.userBarLinks:hover {
+    color: #ccc;
 }
 
 .userBar {

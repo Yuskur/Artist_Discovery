@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import './Search.css';
 
-function Search({ onSearch, setText }) {
+function Search({ onSearch, setText, setClicked, searchBarRef }) {
     const [query, setQuery] = useState("");
 
     //this should handle something else but we will deal with this later
@@ -17,8 +17,12 @@ function Search({ onSearch, setText }) {
         onSearch(newQuery);
     } 
 
+    const handleClick = () => {
+        setClicked(true)
+    }
+
     return (
-        <form onSubmit={handleSearch} className="Search">
+        <form onSubmit={handleSearch} className="Search" onClick={handleClick} ref={searchBarRef}>
             <input 
                 type="text" 
                 placeholder="Search..." 

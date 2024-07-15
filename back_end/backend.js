@@ -72,7 +72,8 @@ app.post('/login', (req, res) => {
     */
 
     //Making the json web token for the user (just using 1 for the uid for now)
-    const token = jwt.sign(payload, process.env.SECRET_KEY, {expiresIn: '24h'})
+    const token = jwt.sign(payload, process.env.SECRET_KEY, {expiresIn: '1h'})
+    const refToken = jwt.sign(payload, process.env.REFRESH_SECRET_KEY, {expiresIn: '7d'})
 
     //This will store the cookie as an http only cookie in client browser
     res.cookie(
@@ -80,7 +81,15 @@ app.post('/login', (req, res) => {
             httpOnly: true,
             secure: process.env.NODE_ENV === 'production',
             sameSite: 'lax',
-            maxAge: 86400000,
+            maxAge: 3600000,
+        }
+    )
+    res.cookie(
+        'refToken', refToken, {
+            httpOnly: true, 
+            secure: process.env.NODE_ENV === 'production', 
+            sameSite: 'lax',
+            maxAge: 86400000 * 7
         }
     )
 
@@ -107,7 +116,8 @@ app.post('/signup', (req, res) => {
         roles: 'user'
     }
 
-    const token = jwt.sign(payload, process.env.SECRET_KEY, {expiresIn: '24h'})
+    const token = jwt.sign(payload, process.env.SECRET_KEY, {expiresIn: '1h'})
+    const refToken = jwt.sign(payload, process.env.REFRESH_SECRET_KEY, {expiresIn: '7d'})
 
     //This will store the cookie as an http only cookie in client browser
     res.cookie(
@@ -115,7 +125,15 @@ app.post('/signup', (req, res) => {
             httpOnly: true,
             secure: process.env.NODE_ENV === 'production',
             sameSite: 'lax',
-            maxAge: 86400000,
+            maxAge: 3600000,
+        }
+    )
+    res.cookie(
+        'refToken', refToken, {
+            httpOnly: true, 
+            secure: process.env.NODE_ENV === 'production', 
+            sameSite: 'lax',
+            maxAge: 86400000 * 7
         }
     )
 
@@ -123,13 +141,70 @@ app.post('/signup', (req, res) => {
     res.json({ message: 'Signup successful' })
 })
 
-app.get('/authorized', (req, res) => {
+//This will allow for the user session to refresh whenever they use a feature requiring authorization
+app.post('/refresh-token', (req, res) => {
+    const refToken = req.cookies.refToken
+
+    if(!refToken){
+        return res.status(401).json({message: 'No Refresh Token Found'})
+    }
+
+    try{
+        const decoded = jwt.verify(refToken, process.env.REFRESH_SECRET_KEY)
+        const payload = {
+            userid: decoded.userid,
+            username: decoded.username,
+            roles: decoded.roles,
+        }
+
+        console.log(payload)
     
+        const newToken = jwt.sign(payload, process.env.SECRET_KEY, {expiresIn: '1h'})
+    
+        res.cookie(
+            'token', newToken, {
+                httpOnly: true,
+                secure: process.env.NODE_ENV === 'production',
+                sameSite: 'lax',
+                maxAge: 3600000,
+            }
+        )
+        
+        return res.json({message: 'Successfully refreshed the token'})
+    }catch(error){
+        return res.status(403).json({message: 'Invalid Ref token'})
+    }
+
+})
+
+app.get('/authorized', (req, res) => {
+    const token = req.cookies.token;
+    console.log(token)
+
+    if(!token){
+        console.log('/authorized: session expired')
+        return res.status(401).json({message: 'Unauthorized User'})
+    }
+
+    jwt.verify(token, process.env.SECRET_KEY, (err, decoded) => {
+        if(err){
+            console.log('/authorized: token not valid')
+            return res.status(401).json({message: 'Unauthorized User'})
+        }
+        const { userid, username, email } =  decoded;
+        return res.json({message: 'Authorized', user: {userid, username, email}})
+    })
 })
 
 //This will set the user session named token to expire immediately meaning the user is now logged out
 app.post('/logout', (req, res) => {
     res.cookie('token', '', {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === 'production',
+        sameSite: 'strict',
+        expires: new Date(0) // Set the cookie to expire immediately
+    });
+    res.cookie('refToken', '', {
         httpOnly: true,
         secure: process.env.NODE_ENV === 'production',
         sameSite: 'strict',

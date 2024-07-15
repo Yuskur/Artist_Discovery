@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import './TopBar.css'
 
-function Topbar({ isLoggedIn, setIsLoggedIn, userBarClicked, setClicked, userBarRef }){
+function Topbar({ isLoggedIn, setIsLoggedIn, userBarClicked, setClicked, userBarRef, handleUserAuthCheck }){
     const nav = useNavigate()
 
     const logout = async () => {
@@ -17,6 +17,7 @@ function Topbar({ isLoggedIn, setIsLoggedIn, userBarClicked, setClicked, userBar
             if(response.ok){
                 setIsLoggedIn(false);
                 setClicked(false);
+                nav('/')
             }
             else{
                 console.log('logout failed')
@@ -28,9 +29,11 @@ function Topbar({ isLoggedIn, setIsLoggedIn, userBarClicked, setClicked, userBar
     }
 
     const showUserTools = (event) => {
+        console.log('clicked')
         event.stopPropagation();
         setClicked(!userBarClicked);
-      };
+        console.log('set to opposite')
+    };
 
     function LoginSignup(){
         return(
@@ -44,16 +47,33 @@ function Topbar({ isLoggedIn, setIsLoggedIn, userBarClicked, setClicked, userBar
     function UserProfile(){
         return(
             <div className="profile">
-                <div className="user" onClick={showUserTools}></div>
+                <div className="user" onClick={showUserTools} ref={userBarRef}></div>
             </div>
         )
     }
 
+    //view profile clicked
+    const viewProfile = async () => {
+        try{
+            const isAuthorized = await handleUserAuthCheck();
+            if(isAuthorized){
+                console.log('Is Authorized')
+                nav('/Profile')
+            }
+            else{
+                console.log('Not Authorized')
+                nav('/Login')
+            }
+        }catch(error){
+            return(error)
+        }
+    }
+
     function UserBar(){
         return(
-            <nav ref={userBarRef} className="userToolBody">
+            <nav className="userToolBody">
                 <div className="user-profile-detail-body">
-                    <div className="inner-profile" onClick={() => {nav('/Profile')}}>
+                    <div className="inner-profile" onClick={viewProfile}>
                         <div className="user-profile-detail"></div>
                         <div>
                             <p className="view-profile">View Profile</p>
@@ -63,11 +83,11 @@ function Topbar({ isLoggedIn, setIsLoggedIn, userBarClicked, setClicked, userBar
                     <hr />
                 </div>
                 <ul className="userBar">
-                    <li className="userTools">Home</li>
-                    <li className="userTools">Edit Profile</li>
-                    <li className="userTools">Messages</li>
-                    <li className="userTools">Help</li>
-                    <li className="userTools">settings</li>
+                    <li className="userTools"><NavLink to={'/'} className="userBarLinks">Home</NavLink></li>
+                    <li className="userTools"><NavLink to={'/Profile'} className="userBarLinks">Edit Profile</NavLink></li>
+                    <li className="userTools"><NavLink to={'/Messages'} className="userBarLinks">Messages</NavLink></li>
+                    <li className="userTools"><NavLink to={'/Help'} className="userBarLinks">Help</NavLink></li>
+                    <li className="userTools"><NavLink to={'/Settings'} className="userBarLinks">Settings</NavLink></li>
                     <li className="userTools" onClick={logout}>Logout</li>
                 </ul>
             </nav>
@@ -77,11 +97,11 @@ function Topbar({ isLoggedIn, setIsLoggedIn, userBarClicked, setClicked, userBar
     return (
         <div className="top-bar">
             <nav className="navbar">
-                <Link className="logo" to="/">Artist Discovery</Link>
+                <Link className="logo" to="/">Disco Share</Link>
                     <div className="def-nav-container">
                         <li className="def-nav"><NavLink to={'/'} className="def-nav-link">Home</NavLink></li>
                         <li className="def-nav"><NavLink to={'/About'} className="def-nav-link">About</NavLink></li>
-                        <li className="def-nav"><NavLink to={'/Explore'} className="def-nav-link">Explore</NavLink></li>
+                        <li className="def-nav"><NavLink to={'/Discover'} className="def-nav-link">Discover</NavLink></li>
                         <li className="def-nav"><NavLink to={'/Genres'} className="def-nav-link">Genres</NavLink></li>
                         <li className="def-nav"><NavLink to={'/Shop'} className="def-nav-link">Shop</NavLink></li>
                     </div>

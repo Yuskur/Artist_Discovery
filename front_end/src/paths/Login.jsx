@@ -54,7 +54,7 @@ function Login({setIsLoggedIn}){
     }
 
     return(
-        <div className="body">
+        <div className="auth-body">
             <div className="Login"> 
                 <form onSubmit={submit}>
                     <h1 className="Login-title">Login</h1>

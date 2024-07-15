@@ -38,7 +38,7 @@ function Signup() {
   };
   
   return (
-    <div className="body">
+    <div className="auth-body">
       <div className="Login">
         <form onSubmit={handleSignup}>
           <h1 className="Login-title">Signup</h1>
