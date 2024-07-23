@@ -2,11 +2,11 @@ import logo from './logo.svg';
 import './App.css';
 import {useEffect, useState, useRef} from 'react'
 import { BrowserRouter, Route, Routes, useNavigate } from 'react-router-dom'
-import Login from './paths/Login';
+import Login from './paths/top_bar_paths/Login';
 import Home from './paths/Home';
-import Signup from './paths/Signup';
-import Topbar from './paths/TopBar';
-import About from './paths/About'
+import Signup from './paths/top_bar_paths/Signup';
+import Topbar from './paths/top_bar_paths/TopBar';
+import About from './paths/top_bar_paths/About'
 import Profile from './tool_bar_paths/Profile';
 import Discover from './paths/top_bar_paths/Discover';
 
@@ -40,29 +40,29 @@ function App() {
 
   //Check if the user session is still valid upon visits or reloads
   const handleUserAuthCheck = async () => {
-    await fetch('http://localhost:3001/authorized', {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      credentials:'include'
-    }).then(response => {
-      if(!response.ok){
+    try {
+      const response = await fetch('http://localhost:3001/authorized', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        credentials: 'include'
+      });
+  
+      if (!response.ok) {
         setIsLoggedIn(false);
-        throw new Error('Auth failed')
-      }
-      else {
-        setIsLoggedIn(true)
+        throw new Error('Auth failed');
+      } else {
+        setIsLoggedIn(true);
         console.log('returning true');
+        await handleTokenRef();  // Ensure token refresh is handled if needed
         return true;
       }
-    }).then(() => {
-      handleTokenRef();
-    }).catch(error => {
+    } catch (error) {
       console.log('returning false');
       nav('/Login');
       return false;
-    })
+    }
   }
 
   const handleTokenRef = async () => {

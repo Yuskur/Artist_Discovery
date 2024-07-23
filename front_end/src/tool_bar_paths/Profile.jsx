@@ -7,7 +7,7 @@ function Profile(){
 
     return(
         <div className="profile-body">
-            <div>
+            <div className="">
                 
             </div>
         </div>

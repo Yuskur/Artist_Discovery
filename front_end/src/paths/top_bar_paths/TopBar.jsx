@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
-import './TopBar.css'
+import './styles/TopBar.css'
 
 function Topbar({ isLoggedIn, setIsLoggedIn, userBarClicked, setClicked, userBarRef, handleUserAuthCheck }){
     const nav = useNavigate()
@@ -17,7 +17,7 @@ function Topbar({ isLoggedIn, setIsLoggedIn, userBarClicked, setClicked, userBar
             if(response.ok){
                 setIsLoggedIn(false);
                 setClicked(false);
-                nav('/')
+                nav('/Login')
             }
             else{
                 console.log('logout failed')
@@ -56,6 +56,7 @@ function Topbar({ isLoggedIn, setIsLoggedIn, userBarClicked, setClicked, userBar
     const viewProfile = async () => {
         try{
             const isAuthorized = await handleUserAuthCheck();
+            console.log('isAuthorized: ' + isAuthorized)
             if(isAuthorized){
                 console.log('Is Authorized')
                 nav('/Profile')

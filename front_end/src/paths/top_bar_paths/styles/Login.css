@@ -2,133 +2,133 @@
     min-height: 100%;
     min-width: 100%;
     display: flex;
-    padding: 20px;
+    padding: 1.25rem;
     background-color: #f5f5dc;
     box-sizing: border-box;
     position: relative;
-  }
+}
 
-  /* The login form */
+/* The login form */
 .Login, .Signup {
     position: fixed;
-    top: 200px;
-    left: 650px;
-    width: 300px;
+    top: 12.5rem;
+    left: 40.625rem;
+    width: 18.75rem;
     text-align: center;
-    border: 1px solid #ccc;
-    padding: 50px;
-    border-radius: 20px;
+    border: 0.0625rem solid #ccc;
+    padding: 3.125rem;
+    border-radius: 1.25rem;
     border-color: black;
-    border-width: 2px;
+    border-width: 0.125rem;
     background-color: white;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin: 20px;
-  }
+    box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.1);
+    margin: 1.25rem;
+}
 
-.Email{
+.Email {
     flex: 1;
     display: flex;
     width: 100%;
-    margin-top: 30px;
-    margin-bottom: 30px;
+    margin-top: 1.875rem;
+    margin-bottom: 1.875rem;
 }
 
-.Email-textbox{
+.Email-textbox {
     flex: 1;
-    font-size: 12px;
-    padding: 15px;
+    font-size: 0.75rem;
+    padding: 0.9375rem;
     border-color: black;
-    border-radius: 10px;
+    border-radius: 0.625rem;
     outline: none;
     box-shadow: none;
 }
 
-.firstLine{
-    margin-bottom: 30px;
+.firstLine {
+    margin-bottom: 1.875rem;
 }
 
-.Username-textbox{
+.Username-textbox {
     flex: 1;
-    font-size: 12px;
-    padding: 15px;
+    font-size: 0.75rem;
+    padding: 0.9375rem;
     border-color: black;
-    border-radius: 10px;
-    outline: none;
-    box-shadow: none;
-}
-.Username{
-    flex: 1;
-    display: flex;
-    width: 100%;
-    margin-top: 30px;
-    margin-bottom: 30px;
-}
-
-.Password-textbox{
-    flex: 1;
-    font-size: 12px;
-    padding: 15px;
-    border-color: black;
-    border-radius: 10px;
+    border-radius: 0.625rem;
     outline: none;
     box-shadow: none;
 }
 
-.Password{
+.Username {
     flex: 1;
     display: flex;
     width: 100%;
-    margin-top: 30px;
-    margin-bottom: 30px;
+    margin-top: 1.875rem;
+    margin-bottom: 1.875rem;
 }
 
-.login{
+.Password-textbox {
+    flex: 1;
+    font-size: 0.75rem;
+    padding: 0.9375rem;
+    border-color: black;
+    border-radius: 0.625rem;
+    outline: none;
+    box-shadow: none;
+}
+
+.Password {
     flex: 1;
     display: flex;
-    margin: 20px;
+    width: 100%;
+    margin-top: 1.875rem;
+    margin-bottom: 1.875rem;
+}
+
+.login {
+    flex: 1;
+    display: flex;
+    margin: 1.25rem;
     justify-content: center;
     align-items: center;
 }
 
-.Login-button{
+.Login-button {
     flex: 1;
-    font-size: 15px;
-    padding: 5px;
+    font-size: 0.9375rem;
+    padding: 0.3125rem;
     background-color: white;
     color: black;
     border-color: black;
-    border-radius: 10px;
+    border-radius: 0.625rem;
 }
 
-.Login-button:hover{
+.Login-button:hover {
     background-color: black;
     color: white;
 }
 
-.signup{
+.signup {
     flex: 1;
     display: flex;
-    margin: 20px;
+    margin: 1.25rem;
     justify-content: center;
     align-items: center;
 }
 
-.Signup-button{
+.Signup-button {
     flex: 1;
-    font-size: 15px;
-    padding: 5px;
+    font-size: 0.9375rem;
+    padding: 0.3125rem;
     background-color: white;
     color: black;
     border-color: black;
-    border-radius: 10px;
+    border-radius: 0.625rem;
 }
 
-.Signup-button:hover{
+.Signup-button:hover {
     background-color: black;
     color: white;
 }
 
-.secondLine{
+.secondLine {
     display: inline;
 }
-
