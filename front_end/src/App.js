@@ -7,7 +7,7 @@ import Home from './paths/Home';
 import Signup from './paths/top_bar_paths/Signup';
 import Topbar from './paths/top_bar_paths/TopBar';
 import About from './paths/top_bar_paths/About'
-import Profile from './tool_bar_paths/Profile';
+import Profile from './paths/tool_bar_paths/Profile';
 import Discover from './paths/top_bar_paths/Discover';
 
 
