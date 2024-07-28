@@ -1,0 +1,130 @@
+.profile-body{
+    min-width: 100%;
+    min-height: 60rem;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg_color);
+}
+
+.user-details-body{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    min-width: 60rem;
+    height: auto;
+    margin: 0rem 20rem 0rem 20rem;
+    padding: 1.5rem;
+    border-radius: 1rem;
+}
+
+.user-details{
+    display: flex;
+    flex-direction: row;
+}
+
+.user-content{
+    min-width: 55rem;
+    min-height: 45rem;
+    height: auto;
+    margin: 1.5rem 25rem 1.5rem 25rem;
+    padding: 1.5rem;
+    border: .08rem solid black;
+    border-radius: 1rem;
+}
+
+.line-body {
+    margin: 1rem 25rem 1rem 25rem;
+  }
+  
+  .line {
+    min-width: 58rem;
+    border: 0.01rem solid black;
+  }
+
+
+/* Profile photo */
+
+.profile-photo{
+    width: 10rem;
+    height: 10rem;
+    border: 1px solid black;
+    margin-top: 2rem;
+    border-radius: 50%;
+    background-color: white;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.user-information{
+    display: flex;
+    flex-direction: column;
+    margin: 0 0 0 10rem;
+    height: auto;
+}
+
+/* row 1 user details */
+.user-inf-row1{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.username{
+    font-size: 1.5rem;
+    font-weight: 200;
+    margin: 1.5rem;
+}
+
+.following{
+    font-size: 1rem;
+    font-weight: bold;
+    margin: 1.5rem;
+    cursor: pointer;
+}
+.followers{
+    font-size: 1rem;
+    font-weight: bold;
+    margin: 1.5rem;
+    cursor: pointer;
+}
+
+/* row 2 user details */
+
+.user-inf-row2{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: auto;
+    width: 20rem;
+    min-width: 20rem;
+    margin-left: 1.5rem;
+}
+
+/* row 3 user details */
+.user-inf-row3{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+}
+
+.edit-profile{
+    margin-left: auto;
+    padding: .7rem;
+    border: 1px solid black;
+    border-radius: .5rem;
+    background-color: rgb(39, 36, 36);
+    color: white;
+    font-weight: bold;
+    font-size: .8rem;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.edit-profile:hover{
+    background-color: rgb(83, 78, 78);
+}

@@ -97,7 +97,7 @@ function App() {
          setClicked={setUserBarClicked}
          userBarRef={userBarRef}
          handleUserAuthCheck={handleUserAuthCheck}
-          />
+        />
         <div className='content'>
           <Routes className="routes">
             <Route path='/' element={<Home clicked={searchBarClicked} setClicked={setSearchBarClicked} searchBarRef={searchBarRef} />} />

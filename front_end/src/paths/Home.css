@@ -1,27 +1,32 @@
 .home-body {
-    min-height: 100%;
+    height: auto;
     min-width: 100%;
+    margin-top: 5rem;
+    padding: 10rem;
     background-color: var(--bg_color);
 }
 
 /* Search Bar */
 .Search-bar {
+    position: fixed;
     margin-left: auto;
     margin-right: auto;
+    top: 5rem;
+    left: 22.5rem;
+    right: 22.5rem;
     width: 60%;
     min-width: 31.25rem;
-    overflow: hidden;
+    overflow-x: hidden;
+    z-index: 9;
 }
 
 /* Vote Section */
 .vote {
-    position: fixed;
-    right: 5rem;
-    top: 18.75rem;
     width: 12.5rem;
     min-width: 18.75rem;
     height: auto;
     min-height: 31.25rem;
+    background-color: #fbf8f8;
     border-radius: 0.3125rem;
     border: 0.0625rem solid black;
     padding: 0.625rem;

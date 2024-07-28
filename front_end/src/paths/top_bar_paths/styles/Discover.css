@@ -1,5 +1,6 @@
 .discover-body{
-    min-height: 100%;
+    height: auto;
+    min-height: 60rem;
     min-width: 100%;
     background-color: var(--bg_color)
 }
