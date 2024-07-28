@@ -7,7 +7,7 @@ function Discover({clicked, setClicked, searchBarRef}){
 
     return (
         <div className="discover-body">
-
+            This is the discover page
         </div>
     );
 }
