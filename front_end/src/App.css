@@ -8,6 +8,7 @@ html, body {
   width: 100%;
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
 }
 
 .app {
@@ -28,6 +29,7 @@ html, body {
 .content {
   flex: 1;
   overflow-y: auto;
+  overflow-x: hidden;
   display: flex;
   flex-direction: column;
   justify-content: flex-start; 

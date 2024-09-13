@@ -29,25 +29,28 @@ nav .logo {
     margin-left: 0.625rem;
 }
 
-ul li a.auth-nav {
+ul li a.auth-nav {  
     display: block;
     text-decoration: none;
-    color: white;
+    font-weight: 700;
+    color: black;
     padding: 0.5rem;
     margin: 0 0.5rem;
-    border-radius: 0.5rem;
-    background-color: black;
     transition: background-color 0.3s, color 0.3s;
 }
 
 ul li a.auth-nav.active {
-    background-color: white;
+    background-color: black;
+    color: white;
+}
+
+ul li a.auth-nav:not(.active) {
     color: black;
 }
 
 ul li a.auth-nav:not(.active):hover {
-    background-color: white;
-    color: black;
+    background-color: black;
+    color: white;
 }
 
 .def-nav-link {
